@@ -44,10 +44,11 @@ const loginService = async (req,res) => {
       }
     })
 
-    if(!checkUser) throw createError("User does not exist",400)
+    if(!checkUser) throw createError("Incorrect email or password",401)
     if (bcrypt.compareSync(mat_khau,checkUser.mat_khau)){
-      let token = createToken()
-    }
+      let token = createToken({userId:checkUser.nguoi_dung_id})
+      return token
+    }else throw createError("Incorrect password",401)
   }catch(err){
     throw err;
   }

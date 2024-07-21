@@ -1,3 +1,5 @@
 import jwt from "jsonwebtoken"
 
-export const createToken = data => jwt.sign({data},process.env.SECRET,{algorithm:"ES256",expiresIn:"60d"})
+const createToken = data => jwt.sign({data},process.env.SECRET,{algorithm:"HS256",expiresIn:"60d"})
+const verifyToken = token => jwt.verify(token,process.env.SECRET,error => error)
+export { createToken, verifyToken}
