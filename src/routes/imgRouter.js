@@ -1,6 +1,8 @@
 import express from "express";
-import { middleToken } from "../middlewares/authMiddleware.js";
+import { checkComment, middleToken } from "../middlewares/authMiddleware.js";
 import {
+  addComment,
+  checkSavedImage,
   getCommentList,
   getImageList,
   getImgDetail,
@@ -20,5 +22,11 @@ imgRouter.get("/img-detail/:id", middleToken, getImgDetail);
 
 //Get comment list via image
 imgRouter.get("/comments/:id", middleToken, getCommentList);
+
+//Get saved image via hinh_id
+imgRouter.get("/saved/:id",middleToken,checkSavedImage)
+
+//add comment
+imgRouter.post("/create-comment",middleToken,checkComment,addComment)
 
 export default imgRouter;

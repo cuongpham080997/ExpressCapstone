@@ -10,7 +10,7 @@ const checkBlankField = (requiredFiled) => (req, res, next) => {
 
 const checkSignUp = checkBlankField(["ho_ten", "mat_khau", "email", "tuoi"]);
 const checkSignIn = checkBlankField(["email", "mat_khau"]);
-
+const checkComment = checkBlankField(["hinh_id","noi_dung"])
 const middleToken = (req, res, next) => {
   let { token } = req.headers;
   if(!token) res.status(401).send("Token not found")
@@ -20,4 +20,4 @@ const middleToken = (req, res, next) => {
   else next();
 };
 
-export { checkSignUp, checkSignIn,middleToken };
+export { checkSignUp, checkSignIn,middleToken,checkComment};

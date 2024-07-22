@@ -9,5 +9,5 @@ app.use(express.static("."))
 app.use(express.json())
 
 app.listen(8080)
-app.use(rootRouter)
+app.use("/api",rootRouter)
 
