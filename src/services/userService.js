@@ -146,5 +146,5 @@ export {
   loginService,
   getUserInfoService,
   getSavedImageByUserService,
-  getCreatedImageByUserService
+  getCreatedImageByUserService,
 };

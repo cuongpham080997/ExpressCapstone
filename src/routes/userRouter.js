@@ -20,4 +20,6 @@ userRouter.get("/saved-image",middleToken,getSavedImageByUser)
 //Get created image by user
 userRouter.get("/created-image",middleToken,getCreatedImageByUser)
 
+
+
 export default userRouter

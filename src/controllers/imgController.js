@@ -1,7 +1,9 @@
 import {
   addCommentService,
   checkSavedImageService,
-    getCommentListService,
+  createImageService,
+  deleteImageService,
+  getCommentListService,
   getImageListService,
   getImgDetailService,
   searchImgNameService,
@@ -35,7 +37,7 @@ const getImgDetail = async (req, res) => {
   }
 };
 
-const getCommentList = async (req,res) => {
+const getCommentList = async (req, res) => {
   try {
     const result = await getCommentListService(req);
     responseSend(res, result, "Successful!", 200);
@@ -44,23 +46,49 @@ const getCommentList = async (req,res) => {
   }
 };
 
-const checkSavedImage = async (req,res) => {
-  try{
-    const result = await checkSavedImageService(req)
+const checkSavedImage = async (req, res) => {
+  try {
+    const result = await checkSavedImageService(req);
     responseSend(res, result, "Successful!", 200);
-  }catch(err){
-    responseSend(res,null,err.message,err.status)
+  } catch (err) {
+    responseSend(res, null, err.message, err.status);
   }
-}
+};
 
 const addComment = async (req, res) => {
+  try {
+    const result = await addCommentService(req);
+    responseSend(res, result, "Successful!", 200);
+  } catch (err) {
+    responseSend(res, null, err.message, err.status);
+  }
+};
+
+const deleteImage = async (req, res) => {
+  try {
+    const result = await deleteImageService(req);
+    responseSend(res, result, "Successful!", 200);
+  } catch (err) {
+    responseSend(res, null, err.message, err.status);
+  }
+};
+
+const createImage = async (req,res) => {
   try{
-    const result = await addCommentService (req)
+    const result = await createImageService(req);
     responseSend(res, result, "Successful!", 200);
   }catch(err){
-    responseSend(res,null,err.message,err.status)
-    
+    responseSend(res, null, err.message, err.status);
   }
 }
 
-export { getImageList, searchImgName, getImgDetail, getCommentList,checkSavedImage,addComment };
+export {
+  getImageList,
+  searchImgName,
+  getImgDetail,
+  getCommentList,
+  checkSavedImage,
+  addComment,
+  deleteImage,
+  createImage
+};

@@ -135,11 +135,48 @@ const addCommentService = async (req) => {
         noi_dung,
         ngay_binh_luan: new Date(),
       })
-    }else throw createError("Invalid nguoi_dung_id or hinh_id")
+    }else throw createError("Invalid nguoi_dung_id or hinh_id",401)
   } catch (err) {
     throw err;
   }
 };
+
+const deleteImageService = async (req) =>{
+  try{
+    const {id} = req.params
+    const {token} = req.headers
+    const {data} = decodeToken(token)
+    const delImageExist = await model.hinh_anh.destroy({
+      where:{
+        hinh_id:id,
+        nguoi_dung_id: data.userId
+      }
+    })
+    if(!delImageExist) throw createError("Image not found",404)
+    
+  }catch(err){
+    throw err
+  }
+}
+
+const createImageService = async (req) => {
+  try{
+    let {file} = req
+    let {ten_hinh,mo_ta} = req.body
+    let {token} = req.headers
+    let {data} = decodeToken(token)
+    if(!file) throw createError("Invalid file",401)
+    let newImage = await model.hinh_anh.create({
+      ten_hinh,
+      mo_ta,
+      nguoi_dung_id: data.userId,
+      duong_dan: file.filename
+    })
+    return newImage
+  }catch(err){
+    throw err
+  }
+}
 
 export {
   getImageListService,
@@ -148,4 +185,6 @@ export {
   getCommentListService,
   checkSavedImageService,
   addCommentService,
+  deleteImageService,
+  createImageService
 };

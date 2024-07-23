@@ -1,6 +1,6 @@
 import { responseSend } from "../config/response.js";
 import {
-    getCreatedImageByUserService,
+  getCreatedImageByUserService,
   getSavedImageByUserService,
   getUserInfoService,
   loginService,
@@ -51,6 +51,7 @@ const getCreatedImageByUser = async (req, res) => {
     responseSend(res, null, err.message, err.status);
   }
 };
+
 
 export {
   register,
