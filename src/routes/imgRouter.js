@@ -1,5 +1,5 @@
 import express from "express";
-import { checkComment, checkCreateImg, middleToken } from "../middlewares/authMiddleware.js";
+import { checkComment, checkCreateImg, handleUploadImage, middleToken } from "../middlewares/authMiddleware.js";
 import {
   addComment,
   checkSavedImage,
@@ -10,7 +10,6 @@ import {
   getImgDetail,
   searchImgName,
 } from "../controllers/imgController.js";
-import { upload } from "../config/upload.js";
 
 const imgRouter = express.Router();
 
@@ -36,6 +35,7 @@ imgRouter.post("/create-comment",middleToken,checkComment,addComment)
 imgRouter.delete("/del-created/:id",middleToken,deleteImage)
 
 //Create image
-imgRouter.post("/create-img",middleToken,upload.single("hinhAnh"),checkCreateImg,createImage)
+imgRouter.post("/create-img",middleToken,handleUploadImage('hinhAnh'),checkCreateImg,createImage)
+
 
 export default imgRouter;

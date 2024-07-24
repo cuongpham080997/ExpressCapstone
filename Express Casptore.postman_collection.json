@@ -1,0 +1,435 @@
+{
+	"info": {
+		"_postman_id": "bbc08b4d-1c0f-4901-9024-d54d7b3c1fee",
+		"name": "Express Casptore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34764301"
+	},
+	"item": [
+		{
+			"name": "Sign up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test1234578@gmail.com\",\r\n    \"mat_khau\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/user/sign-up",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign in",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiYWJjIiwiaWF0IjoxNzIwMjAxNTc1LCJleHAiOjE3MjA2MzM1NzV9.PHGPepYMAPUmt-rthCO9yO81y8aK0DilGoZt-nOmlMw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"cuong@gmail.com\",\r\n    \"mat_khau\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/user/sign-in",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get image list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/img/lst",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"img",
+						"lst"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Image via name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/img/search?keyword=hình 1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"img",
+						"search"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "hình 1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get image detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/img/img-detail/15",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"img",
+						"img-detail",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get comment list via image",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/img/comments/20",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"img",
+						"comments",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check saved image ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/img/saved/20",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"img",
+						"saved",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create comment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hinh_id\": 1,\n    \"noi_dung\": \"Hello world\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/img/create-comment",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"img",
+						"create-comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/user/info",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get saved image by user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/user/saved-image",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"saved-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get created image by user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/api/user/created-image",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"created-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete created image",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{domain}}/api/img/del-created/20",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"img",
+						"del-created",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTcyMTMxMjMzMiwiZXhwIjoxNzI2NDk2MzMyfQ.YCdVMkESRdBM_MAScbs8FgiYmDnpUau2Rhx-P3GyAsA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "hinhAnh",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "ten_hinh",
+							"value": "background",
+							"type": "text"
+						},
+						{
+							"key": "mo_ta",
+							"value": "beautiful",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/img/create-img",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"img",
+						"create-img"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}

@@ -107,7 +107,7 @@ const getSavedImageByUserService = async (req) => {
   }
 };
 
-const getCreatedImageByUserService = async(req) =>{
+const getCreatedImageByUserService = async (req) => {
   try {
     const { token } = req.headers;
     const { data } = decodeToken(token);
@@ -139,7 +139,34 @@ const getCreatedImageByUserService = async(req) =>{
   } catch (err) {
     throw err;
   }
-}
+};
+const updateUserService = async (req) => {
+  try {
+    let {file} = req
+    let {ho_ten,email,tuoi} = req.body
+    console.log(ho_ten)
+    let {token} = req.headers
+    let {data} = decodeToken(token)
+    await model.nguoi_dung.update({
+      email,
+      ho_ten,
+      tuoi,
+      anh_dai_dien: file ? file.filename : null,
+    },{
+      where:{
+        nguoi_dung_id: data.userId
+      },
+      returning: true
+    })
+
+    let result = await model.nguoi_dung.findByPk(data.userId)
+    delete result.dataValues.mat_khau
+    return result
+    
+  } catch (err) {
+    throw err;
+  }
+};
 
 export {
   registerService,
@@ -147,4 +174,5 @@ export {
   getUserInfoService,
   getSavedImageByUserService,
   getCreatedImageByUserService,
+  updateUserService,
 };

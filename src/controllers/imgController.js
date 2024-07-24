@@ -73,7 +73,7 @@ const deleteImage = async (req, res) => {
   }
 };
 
-const createImage = async (req,res) => {
+const  createImage = async (req,res) => {
   try{
     const result = await createImageService(req);
     responseSend(res, result, "Successful!", 200);

@@ -5,6 +5,7 @@ import {
   getUserInfoService,
   loginService,
   registerService,
+  updateUserService,
 } from "../services/userService.js";
 
 const register = async (req, res) => {
@@ -52,6 +53,14 @@ const getCreatedImageByUser = async (req, res) => {
   }
 };
 
+const updateUser = async (req, res) => {
+  try {
+    const result = await updateUserService(req);
+    responseSend(res, result, "Successful!", 200);
+  } catch (err) {
+    responseSend(res, null, err.message, err.status);
+  }
+};
 
 export {
   register,
@@ -59,4 +68,5 @@ export {
   getUserInfo,
   getSavedImageByUser,
   getCreatedImageByUser,
+  updateUser,
 };
